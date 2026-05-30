@@ -1,0 +1,129 @@
+name: gh-agent
+description: Run gh-agent on GitHub issues and pull requests.
+
+branding:
+  icon: message-square
+  color: blue
+
+inputs:
+  base_url:
+    description: Custom model service base URL.
+    required: true
+  provider:
+    description: Pi model provider id.
+    required: true
+  provider_api:
+    description: Pi model provider API adapter.
+    required: true
+  provider_auth_header:
+    description: Whether the Pi provider should set an Authorization header.
+    required: true
+  model:
+    description: Model name.
+    required: true
+  model_reasoning:
+    description: Whether the model supports reasoning.
+    required: true
+  model_input:
+    description: Comma-separated model input modes.
+    required: true
+  model_context_window:
+    description: Model context window size.
+    required: true
+  model_max_tokens:
+    description: Model max output tokens.
+    required: true
+  thinking_level:
+    description: Agent thinking level.
+    required: true
+  tools:
+    description: Comma-separated enabled agent tools.
+    required: true
+  compaction_enabled:
+    description: Whether session compaction is enabled.
+    required: true
+  retry_enabled:
+    description: Whether model retry is enabled.
+    required: true
+  retry_max_retries:
+    description: Maximum model retry attempts.
+    required: true
+  no_skills:
+    description: Disable Pi skills.
+    required: true
+  no_context_files:
+    description: Disable Pi context files.
+    required: true
+  llm_key:
+    description: Model API key.
+    required: true
+  timeout:
+    description: Agent timeout in seconds.
+    required: true
+
+outputs:
+  success:
+    description: Whether the agent completed successfully.
+    value: ${{ steps.run-agent.outputs.success }}
+  response:
+    description: Agent response text.
+    value: ${{ steps.run-agent.outputs.response }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+        persist-credentials: true
+
+    - uses: actions/setup-node@v6
+      with:
+        node-version: "25"
+
+    - name: Install agent runtime
+      shell: bash
+      run: npm ci --prefix "${GITHUB_ACTION_PATH}" --ignore-scripts
+
+    - name: Configure git identity
+      shell: bash
+      working-directory: ${{ github.workspace }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+    - name: Run agent
+      id: run-agent
+      shell: bash
+      working-directory: ${{ github.workspace }}
+      env:
+        GH_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ github.token }}
+        GH_AGENT_BASE_URL: ${{ inputs.base_url }}
+        GH_AGENT_PROVIDER: ${{ inputs.provider }}
+        GH_AGENT_PROVIDER_API: ${{ inputs.provider_api }}
+        GH_AGENT_PROVIDER_AUTH_HEADER: ${{ inputs.provider_auth_header }}
+        GH_AGENT_MODEL: ${{ inputs.model }}
+        GH_AGENT_MODEL_REASONING: ${{ inputs.model_reasoning }}
+        GH_AGENT_MODEL_INPUT: ${{ inputs.model_input }}
+        GH_AGENT_MODEL_CONTEXT_WINDOW: ${{ inputs.model_context_window }}
+        GH_AGENT_MODEL_MAX_TOKENS: ${{ inputs.model_max_tokens }}
+        GH_AGENT_THINKING_LEVEL: ${{ inputs.thinking_level }}
+        GH_AGENT_TOOLS: ${{ inputs.tools }}
+        GH_AGENT_COMPACTION_ENABLED: ${{ inputs.compaction_enabled }}
+        GH_AGENT_RETRY_ENABLED: ${{ inputs.retry_enabled }}
+        GH_AGENT_RETRY_MAX_RETRIES: ${{ inputs.retry_max_retries }}
+        GH_AGENT_NO_SKILLS: ${{ inputs.no_skills }}
+        GH_AGENT_NO_CONTEXT_FILES: ${{ inputs.no_context_files }}
+        GH_AGENT_LLM_KEY: ${{ inputs.llm_key }}
+        GH_AGENT_TIMEOUT: ${{ inputs.timeout }}
+        GH_AGENT_PROMPT_PATH: ${{ github.action_path }}/prompts/agent.md
+      run: node "${GITHUB_ACTION_PATH}/scripts/run-agent.mjs"
+
+    - name: Upload agent session artifact
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v7
+      with:
+        name: gh-agent-session-${{ github.run_id }}-${{ github.run_attempt }}
+        path: ${{ runner.temp }}/gh-agent-session
+        if-no-files-found: ignore

@@ -1,0 +1,32 @@
+{
+  "name": "gh-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reusable GitHub Action for running gh-agent on issues and pull requests.",
+  "author": "linhan-dev",
+  "keywords": [
+    "github-action",
+    "agent",
+    "automation",
+    "pi-agent"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linhan-dev/gh-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/linhan-dev/gh-agent/issues"
+  },
+  "homepage": "https://github.com/linhan-dev/gh-agent#readme",
+  "scripts": {
+    "check": "find scripts -type f \\( -name '*.mjs' -o -name '*.js' \\) -print0 | xargs -0 -n1 node --check"
+  },
+  "dependencies": {
+    "@mariozechner/pi-coding-agent": "^0.73.1"
+  },
+  "engines": {
+    "node": ">=25.0.0"
+  }
+}
