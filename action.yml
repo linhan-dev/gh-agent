@@ -9,9 +9,6 @@ inputs:
   base_url:
     description: Custom model service base URL.
     required: true
-  provider:
-    description: Pi model provider id.
-    required: true
   provider_api:
     description: Pi model provider API adapter.
     required: true
@@ -100,7 +97,6 @@ runs:
         GH_TOKEN: ${{ github.token }}
         GITHUB_TOKEN: ${{ github.token }}
         GH_AGENT_BASE_URL: ${{ inputs.base_url }}
-        GH_AGENT_PROVIDER: ${{ inputs.provider }}
         GH_AGENT_PROVIDER_API: ${{ inputs.provider_api }}
         GH_AGENT_PROVIDER_AUTH_HEADER: ${{ inputs.provider_auth_header }}
         GH_AGENT_MODEL: ${{ inputs.model }}

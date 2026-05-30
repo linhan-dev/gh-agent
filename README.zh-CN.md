@@ -13,7 +13,7 @@
 - 在目标仓库里创建 `.github/workflows/gh-agent.yml`
 - 把示例里的用户名占位符 `'your-github-username'` 替换成允许触发 agent 的 GitHub 用户名
 - 并在仓库设置里配置 Repository secret `GH_AGENT_LLM_KEY` 模型 API key
-- 把模型服务配置替换成你的 provider 参数
+- 把模型服务配置替换成你的模型服务参数
 
 ```yaml
 name: gh-agent
@@ -41,11 +41,10 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: linhan-dev/gh-agent@v0.1.0
+      - uses: linhan-dev/gh-agent@v0.1.1
         with:
           base_url: https://api.example.com/v1
           llm_key: ${{ secrets.GH_AGENT_LLM_KEY }}
-          provider: pi-openai-responses
           provider_api: openai-responses
           provider_auth_header: "true"
           model: your-model-name

@@ -5,6 +5,7 @@ import os from "node:os";
 // secret is supplied through AuthStorage.setRuntimeApiKey(), so this value is
 // only a non-empty placeholder for provider validation and should not resolve.
 const PROVIDER_API_KEY_PLACEHOLDER = "<runtime-api-key>";
+const PROVIDER_ID = "pi-openai-responses";
 
 function env(name, fallback = "") {
   return process.env[name] ?? fallback;
@@ -90,7 +91,7 @@ export function readRuntimeConfig() {
       promptPath: requiredEnv("GH_AGENT_PROMPT_PATH"),
     },
     agent: {
-      provider: requiredEnv("GH_AGENT_PROVIDER"),
+      provider: PROVIDER_ID,
       providerApi: requiredEnv("GH_AGENT_PROVIDER_API"),
       providerApiKey: PROVIDER_API_KEY_PLACEHOLDER,
       providerAuthHeader: parseBoolean(
