@@ -1,5 +1,5 @@
-name: gh-agent
-description: Run gh-agent on GitHub issues and pull requests.
+name: gh-agent-pi
+description: Run a Pi coding agent on GitHub issues and pull requests.
 
 branding:
   icon: message-square
