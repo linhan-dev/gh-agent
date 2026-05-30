@@ -41,7 +41,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: linhan-dev/gh-agent@v0.1.1
+      - uses: linhan-dev/gh-agent@v0.1.2
         with:
           base_url: https://api.example.com/v1
           llm_key: ${{ secrets.GH_AGENT_LLM_KEY }}

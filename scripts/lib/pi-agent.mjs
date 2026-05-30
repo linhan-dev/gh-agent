@@ -49,6 +49,7 @@ function registerConfiguredProvider(models, config) {
         name: config.model,
         reasoning: config.modelReasoning,
         input: config.modelInput,
+        cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 },
         contextWindow: config.modelContextWindow,
         maxTokens: config.modelMaxTokens,
       },
