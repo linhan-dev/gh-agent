@@ -102,5 +102,5 @@ MIT License. See [LICENSE](LICENSE).
 
 ## Community
 
-- Community discussion: https://linux.do
+- Community discussion: https://linux.do/t/topic/2278227
 
