@@ -8,8 +8,10 @@ English | [简体中文](./README.zh-CN.md)
 - Runs on GitHub Actions, so there is no server to deploy or operate
 - Supports custom model services
 
+### Sponsor
+
 <a href="https://kongkongai.com/">
-  <img src="https://docs.kongkongai.com/_astro/kongkongai-logo-and-text.B_w0pkP2.png" alt="KongKong AI" height="24">
+  <img src="./docs/assets/kongkongai-sponsor.png" alt="KongKong AI" height="28">
 </a>
 
 ## Quick Start

@@ -8,8 +8,10 @@
 - 基于 GitHub Actions 运行，无需部署服务器，也没有运维负担
 - 支持自定义模型服务
 
+### 赞助商
+
 <a href="https://kongkongai.com/">
-  <img src="https://docs.kongkongai.com/_astro/kongkongai-logo-and-text.B_w0pkP2.png" alt="KongKong AI" height="24">
+  <img src="./docs/assets/kongkongai-sponsor.png" alt="KongKong AI" height="28">
 </a>
 
 ## 快速开始
