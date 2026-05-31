@@ -8,6 +8,10 @@ English | [简体中文](./README.zh-CN.md)
 - Runs on GitHub Actions, so there is no server to deploy or operate
 - Supports custom model services
 
+<a href="https://kongkongai.com/">
+  <img src="https://docs.kongkongai.com/_astro/kongkongai-logo-and-text.B_w0pkP2.png" alt="KongKong AI" height="24">
+</a>
+
 ## Quick Start
 
 - Create `.github/workflows/gh-agent.yml` in the target repository
