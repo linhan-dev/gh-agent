@@ -99,3 +99,7 @@ jobs:
 ## License
 
 MIT License，见 [LICENSE](LICENSE)。
+
+## 社区
+
+- 社区讨论: https://linux.do
