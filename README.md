@@ -99,3 +99,8 @@ This project was inspired by [`cv/pi-action`](https://github.com/cv/pi-action).
 ## License
 
 MIT License. See [LICENSE](LICENSE).
+
+## Community
+
+- Community discussion: https://linux.do
+
