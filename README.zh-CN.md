@@ -6,9 +6,6 @@
 [![Release](https://img.shields.io/github/v/release/linhan-dev/gh-agent)](https://github.com/linhan-dev/gh-agent/releases)
 [![License](https://img.shields.io/github/license/linhan-dev/gh-agent)](./LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D25-339933?logo=nodedotjs&logoColor=white)](./package.json)
-[![Stars](https://img.shields.io/github/stars/linhan-dev/gh-agent?style=flat&logo=github)](https://github.com/linhan-dev/gh-agent/stargazers)
-[![Issues](https://img.shields.io/github/issues/linhan-dev/gh-agent)](https://github.com/linhan-dev/gh-agent/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/linhan-dev/gh-agent/pulls)
 
 `gh-agent` 让 solo 开发者可以直接在 GitHub 里召唤 Pi agent，帮你讨论需求、修改代码。
 
