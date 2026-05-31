@@ -100,7 +100,7 @@ This project was inspired by [`cv/pi-action`](https://github.com/cv/pi-action).
 
 MIT License. See [LICENSE](LICENSE).
 
-## Community
+## Community Discussion
 
-- Community discussion: https://linux.do/t/topic/2278227
+- https://linux.do/t/topic/2278227
 
