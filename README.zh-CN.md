@@ -2,11 +2,20 @@
 
 # gh-agent
 
+[![CI](https://github.com/linhan-dev/gh-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/linhan-dev/gh-agent/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/linhan-dev/gh-agent)](https://github.com/linhan-dev/gh-agent/releases)
+[![License](https://img.shields.io/github/license/linhan-dev/gh-agent)](./LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D25-339933?logo=nodedotjs&logoColor=white)](./package.json)
+
 `gh-agent` 让 solo 开发者可以直接在 GitHub 里召唤 Pi agent，帮你讨论需求、修改代码。
 
 - 无需触发词：你发出的每条 Issue / PR 内容都会召唤 agent；默认先讨论，明确需要时才修改代码
 - 基于 GitHub Actions 运行，无需部署服务器，也没有运维负担
 - 支持自定义模型服务
+
+<a href="https://kongkongai.com/">
+  <img src="./docs/assets/kongkongai-sponsor.png" alt="KongKong AI" height="28">
+</a>
 
 ## 快速开始
 
