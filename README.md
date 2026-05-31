@@ -2,13 +2,13 @@ English | [简体中文](./README.zh-CN.md)
 
 # gh-agent
 
+[![CI](https://github.com/linhan-dev/gh-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/linhan-dev/gh-agent/actions/workflows/ci.yml)
+
 `gh-agent` lets solo developers summon a Pi agent directly from GitHub to discuss requirements and modify code.
 
 - No trigger phrase required: every Issue / PR message you send can summon the agent; by default it starts with discussion and only changes code when the need is clear
 - Runs on GitHub Actions, so there is no server to deploy or operate
 - Supports custom model services
-
-### Sponsor
 
 <a href="https://kongkongai.com/">
   <img src="./docs/assets/kongkongai-sponsor.png" alt="KongKong AI" height="28">
